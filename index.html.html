@@ -1,0 +1,988 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Toilet Dust 2.0 — The Flush That Comes Back Stronger</title>
+  <link rel="icon" type="image/png" href="freepik_br_66b88a4d-63fe-430d-93ec-c00b89d21494.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg1: #0f1724;
+      --bg2: #0b1220;
+      --accent: #ffdd57;
+      --glass: rgba(255,255,255,0.06);
+      --muted: rgba(230,238,248,0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 10% 10%, #082032 0%, transparent 20%), 
+                  linear-gradient(180deg, var(--bg1), var(--bg2));
+      color: #e6eef8;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 23, 36, 0.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.02);
+    }
+
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      border: 2px solid rgba(255,255,255,0.04);
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .title {
+      font-weight: 900;
+      font-size: 16px;
+      line-height: 1;
+      color: #fff;
+    }
+
+    .subtitle {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .top-buttons {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 8px 12px;
+      border-radius: 8px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 12px;
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+      box-shadow: 0 6px 18px rgba(3,6,23,0.6);
+      transition: transform 0.18s ease, box-shadow 0.18s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.6);
+    }
+
+    /* MEME & STICKER STYLES */
+    .meme-text {
+      font-family: 'Bangers', cursive;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .sticker {
+      border: 4px solid #fff;
+      box-shadow: 8px 8px 0 rgba(0,0,0,0.4);
+      background: linear-gradient(135deg, #ffdd57, #ff9a57);
+      color: #081224;
+      padding: 16px 24px;
+      display: inline-block;
+      border-radius: 0;
+      transform: rotate(-2deg);
+    }
+
+    .sticker:hover {
+      transform: rotate(2deg) scale(1.05);
+    }
+
+    /* SECTIONS WITH INTENTIONAL CHAOS */
+    .chaotic {
+      position: relative;
+    }
+
+    .chaotic .card {
+      transform: rotate(var(--rotation, 0deg));
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .sticker, .sticker:hover, .meme-float, .meme-hero:hover {
+        transform: none !important;
+      }
+    }
+
+    /* PRIMARY BUTTON */
+    .btn-primary {
+      background: linear-gradient(90deg, #ffdd57, #ff9a57) !important;
+      color: #081224 !important;
+      border: none !important;
+      padding: 10px 16px !important;
+      border-radius: 10px !important;
+      font-weight: 700 !important;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 40px;
+      align-items: center;
+      padding: 48px 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    .hero-content {
+      background: url(/freepik_br_66b88a4d-63fe-430d-93ec-c00b89d21494.png), linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-radius: 18px;
+      padding: 40px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 20px 60px rgba(2,6,23,0.8);
+      border: 1px solid var(--glass);
+    }
+
+    .kicker {
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: 1px;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: 'Bangers', cursive;
+      font-size: 48px;
+      margin: 0 0 16px 0;
+      line-height: 1.1;
+      color: #fff;
+      text-shadow: 0 6px 30px rgba(0,0,0,0.6);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-family: 'Bangers', cursive;
+      font-size: 32px;
+      margin: 20px 0 16px 0;
+      color: #fff;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-family: 'Bangers', cursive;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 700;
+    }
+
+    .lead {
+      color: rgba(230,238,248,0.9);
+      font-size: 16px;
+      margin: 16px 0;
+    }
+
+    .metrics {
+      display: flex;
+      gap: 16px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .metric {
+      background: rgba(255,255,255,0.02);
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.03);
+      flex: 1;
+      min-width: 120px;
+    }
+
+    .metric small {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      margin-bottom: 4px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 16px;
+      color: var(--accent);
+    }
+
+    .cta {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .image-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .meme-hero {
+      width: 420px;
+      border-radius: 20px;
+      box-shadow: 0 30px 80px rgba(2,6,23,0.8);
+      border: 6px solid rgba(255,255,255,0.03);
+      transition: transform 0.35s ease;
+      transform: rotate(-12deg);
+    }
+
+    .meme-hero:hover {
+      transform: rotate(0deg) translateY(-8px) scale(1.02);
+    }
+
+    /* FLOATING & BOUNCING MEME */
+    .meme-float {
+      position: fixed;
+      width: 160px;
+      border-radius: 16px;
+      pointer-events: none;
+      z-index: 25;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.7));
+      animation: bounceFloat 4s ease-in-out infinite;
+    }
+
+    .meme-float img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      display: block;
+    }
+
+    .mf-bottom-right {
+      bottom: 60px;
+      right: 30px;
+      animation: bounceBottomRight 4s ease-in-out infinite;
+    }
+
+    .mf-top-left {
+      top: 120px;
+      left: 20px;
+      animation: bounceTopLeft 5.5s ease-in-out infinite;
+      animation-delay: 0.5s;
+    }
+
+    .mf-top-right {
+      top: 200px;
+      right: 40px;
+      width: 140px;
+      animation: bounceTopRight 6s ease-in-out infinite;
+      animation-delay: 1s;
+    }
+
+    .mf-bottom-left {
+      bottom: 150px;
+      left: 60px;
+      width: 130px;
+      animation: bounceBottomLeft 4.8s ease-in-out infinite;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes bounceBottomRight {
+      0% {
+        transform: translateY(0) rotate(0deg) scale(1);
+      }
+      50% {
+        transform: translateY(-30px) rotate(6deg) scale(1.05);
+      }
+      100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+      }
+    }
+
+    @keyframes bounceTopLeft {
+      0% {
+        transform: translateY(0) rotate(0deg) scale(1);
+      }
+      50% {
+        transform: translateY(20px) rotate(-8deg) scale(1.04);
+      }
+      100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+      }
+    }
+
+    @keyframes bounceTopRight {
+      0% {
+        transform: translateX(0) rotate(0deg) scale(1);
+      }
+      50% {
+        transform: translateX(-25px) rotate(5deg) scale(1.06);
+      }
+      100% {
+        transform: translateX(0) rotate(0deg) scale(1);
+      }
+    }
+
+    @keyframes bounceBottomLeft {
+      0% {
+        transform: translateY(0) rotate(2deg) scale(1);
+      }
+      50% {
+        transform: translateY(-25px) rotate(-6deg) scale(1.03);
+      }
+      100% {
+        transform: translateY(0) rotate(2deg) scale(1);
+      }
+    }
+
+    /* PAGE SECTIONS */
+    section.block {
+      background: linear-gradient(180deg, transparent, rgba(255,255,255,0.01));
+      border-radius: 14px;
+      padding: 32px;
+      margin: 32px 0;
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    /* WHAT'S NEW SECTION WITH IMAGE BACKGROUND */
+    #whats-new.block {
+      background-image: url('freepik_br_66b88a4d-63fe-430d-93ec-c00b89d21494.png'),
+                        linear-gradient(135deg, rgba(15, 23, 36, 0.85), rgba(11, 18, 32, 0.90));
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #whats-new.block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 23, 36, 0.65);
+      backdrop-filter: blur(8px);
+      z-index: 0;
+    }
+
+    #whats-new.block h2 {
+      position: relative;
+      z-index: 1;
+    }
+
+    #whats-new.block .grid-3 {
+      position: relative;
+      z-index: 1;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.02);
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-size: 16px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    .timeline-item strong {
+      display: block;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 32px 0;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.03);
+      margin-top: 48px;
+    }
+
+    footer p {
+      margin: 8px 0;
+      font-size: 14px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 32px 0;
+      }
+
+      .meme-hero {
+        width: 100%;
+        max-width: 400px;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 12px;
+      }
+
+      nav {
+        padding: 12px 0;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .top-buttons {
+        gap: 6px;
+      }
+
+      .btn {
+        padding: 6px 10px;
+        font-size: 11px;
+      }
+
+      .title {
+        font-size: 14px;
+      }
+
+      .subtitle {
+        font-size: 10px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      .hero-content {
+        padding: 24px;
+      }
+
+      .lead {
+        font-size: 14px;
+      }
+
+      .card {
+        padding: 16px;
+      }
+
+      .card h3 {
+        font-size: 14px;
+      }
+
+      .card p {
+        font-size: 13px;
+      }
+
+      section.block {
+        padding: 20px;
+        margin: 20px 0;
+      }
+
+      .metrics {
+        gap: 12px;
+      }
+
+      .metric {
+        padding: 10px 12px;
+        font-size: 12px;
+      }
+
+      .cta {
+        gap: 10px;
+      }
+
+      .meme-float {
+        width: 120px;
+      }
+
+      .meme-float {
+        display: none;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 10px;
+      }
+
+      .logo {
+        width: 40px;
+        height: 40px;
+      }
+
+      h1 {
+        font-size: 26px;
+        margin-bottom: 12px;
+      }
+
+      h2 {
+        font-size: 18px;
+      }
+
+      .hero-content {
+        padding: 20px;
+      }
+
+      .lead {
+        font-size: 13px;
+      }
+
+      .btn {
+        padding: 6px 8px;
+        font-size: 10px;
+      }
+
+      .card {
+        padding: 14px;
+      }
+
+      section.block {
+        padding: 16px;
+        margin: 16px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="meme-float mf-bottom-right">
+    <img src="freepik_br_66b88a4d-63fe-430d-93ec-c00b89d21494.png" alt="Toilet Dust 2.0 meme">
+  </div>
+
+  <div class="meme-float mf-top-left">
+    <img src="freepik_br_66b88a4d-63fe-430d-93ec-c00b89d21494.png" alt="Floating meme decoration">
+  </div>
+
+  <div class="meme-float mf-top-right">
+    <img src="meme.jpeg" alt="Floating Toilet Dust logo">
+  </div>
+
+  <div class="meme-float mf-bottom-left">
+    <img src="freepik_br_66b88a4d-63fe-430d-93ec-c00b89d21494.png" alt="Floating meme decoration">
+  </div>
+
+  <div class="container">
+
+    <!-- NAV -->
+    <nav>
+      <div class="brand">
+        <div class="logo"><img src="meme.jpeg" alt="Toilet Dust Logo"></div>
+        <div>
+          <div class="title">Toilet Dust 2.0</div>
+          <div class="subtitle">The Flush That Comes Back</div>
+        </div>
+      </div>
+      <div class="top-buttons">
+        <a class="btn" href="https://twitter.com/" target="_blank" rel="noopener">🐦 Twitter</a>
+        <a class="btn" href="https://t.me/" target="_blank" rel="noopener">✉️ Telegram</a>
+        <a class="btn" href="https://dexscreener.com/" target="_blank" rel="noopener">🔎 DexScreener</a>
+        <a class="btn" href="https://www.dextools.io/" target="_blank" rel="noopener">🛠️ DexTools</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <main class="hero">
+      <section class="hero-content">
+        <div class="kicker">🚽 MEME • COMMUNITY • SUI</div>
+        <h1>Toilet Dust 2.0</h1>
+        <p class="meme-text sticker" style="margin: 16px 0; font-size: 14px;">yes, it's a toilet coin. no, we're not sorry.</p>
+
+        <p class="lead" style="margin-top: 20px;">
+          Toilet Dust is back… and this time it's built to last. The original shocked the Sui ecosystem by blasting its way to $7M market cap, proving that even the dirtiest memes can run hard when the community is real. Now, after learning from the first run, Toilet Dust 2.0 is relaunching with a cleaner structure, stronger foundations, and a renewed mission.
+        </p>
+
+        <p class="lead" style="color: var(--accent); margin-top: 16px;">
+          This isn't a random reboot — it's an evolution.
+        </p>
+
+        <div class="metrics">
+          <div class="metric">
+            <small>Original MCap</small>
+            <strong>$7M+</strong>
+          </div>
+          <div class="metric">
+            <small>Network</small>
+            <strong>Sui</strong>
+          </div>
+          <div class="metric">
+            <small>Status</small>
+            <strong>2.0 Era</strong>
+          </div>
+        </div>
+
+        <div class="cta">
+          <button class="btn btn-primary">Join Now</button>
+          <button class="btn" onclick="document.getElementById('whats-new').scrollIntoView({behavior:'smooth'})">Learn More</button>
+        </div>
+      </section>
+
+      <aside class="image-wrap">
+        <img class="meme-hero" src="meme.jpeg" alt="Toilet Dust 2.0 Hero">
+      </aside>
+    </main>
+
+    <!-- WHAT'S NEW (PATCH NOTES STYLE) -->
+    <section id="whats-new" class="block chaotic">
+      <h2 class="meme-text" style="font-size: 38px; text-shadow: 3px 3px 0 rgba(0,0,0,0.5);">🚽 PATCH 2.0 DEPLOYED</h2>
+      <p class="lead" style="color: var(--accent); font-weight: bold;">What got flushed away. What got rebuilt.</p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>🧻 Fresh Contract</h3>
+          <p>Improved tokenomics and a cleaner contract structure designed for stability and long-term growth.</p>
+        </div>
+        <div class="card">
+          <h3>💧 Cleaner Launch</h3>
+          <p>Tighter supply control and better governance to ensure fairness for all community members.</p>
+        </div>
+        <div class="card">
+          <h3>🧠 Lessons Learned</h3>
+          <p>Building on the success of the $7M run with smarter mechanics and sustainable growth strategies.</p>
+        </div>
+        <div class="card">
+          <h3>🧑‍🚀 Community First</h3>
+          <p>Sui-focused community with emphasis on real holders, not hype cycles. Your voice matters here.</p>
+        </div>
+        <div class="card">
+          <h3>🚀 Built for Longevity</h3>
+          <p>Not a one-flush pump. We're building infrastructure for lasting momentum and real utility.</p>
+        </div>
+        <div class="card">
+          <h3>🔥 Same Energy</h3>
+          <p>Unapologetic meme energy with sharper execution, stronger narrative, and bigger vision.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="block">
+      <h2>For The Community</h2>
+      <p class="lead">
+        Toilet Dust 2.0 keeps the same unapologetic meme energy, but with sharper execution and a stronger narrative. 
+        It's for those who missed the first flush — and for those who rode it and want to do it again, but smarter.
+      </p>
+      <p class="lead">
+        <strong>Sometimes dust settles. Sometimes it comes back louder.</strong>
+      </p>
+    </section>
+
+    <!-- TOKENOMICS -->
+    <section class="block">
+      <h2>Tokenomics</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Total Supply</h3>
+          <p>1,000,000,000,000 TD</p>
+        </div>
+        <div class="card">
+          <h3>Redistribution</h3>
+          <p>3% to holders — keep the groove</p>
+        </div>
+        <div class="card">
+          <h3>Liquidity</h3>
+          <p>4% locked — steady rock</p>
+        </div>
+        <div class="card">
+          <h3>Team Vesting</h3>
+          <p>2% vested — long-term chest</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section class="block">
+      <h2>Roadmap — Zoom to the Moon</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="dot"></div>
+          <div>
+            <strong>Q1</strong>
+            <p>Launch site, hype and light — start the flight</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="dot"></div>
+          <div>
+            <strong>Q2</strong>
+            <p>Listings, drops, community pops — no stops</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="dot"></div>
+          <div>
+            <strong>Q3</strong>
+            <p>NFT events and more intents — big dents</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="dot"></div>
+          <div>
+            <strong>Q4</strong>
+            <p>Partnerships bloom — zoom to the moon</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HALL OF FLUSH (WALL OF SHAME) -->
+    <section class="block">
+      <h2>Hall of Flush</h2>
+      <p class="lead" style="margin-bottom: 24px;">What people said about Toilet Dust 1.0:</p>
+      <div class="grid-3" style="text-align: center;">
+        <div class="card" style="border-left: 4px solid var(--accent);">
+          <p style="font-size: 24px; margin: 0 0 8px 0;">"this is insane"</p>
+          <p class="muted" style="margin: 0;">anon, clearly not holding</p>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--accent);">
+          <p style="font-size: 24px; margin: 0 0 8px 0;">"$7M? unhinged."</p>
+          <p class="muted" style="margin: 0;">the guy who missed it</p>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--accent);">
+          <p style="font-size: 24px; margin: 0 0 8px 0;">"we're coming back"</p>
+          <p class="muted" style="margin: 0;">we weren't joking</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO BUY (MEMIFIED) -->
+    <section class="block">
+      <h2>How to Flush In (No Cap)</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3 class="meme-text">Step 1</h3>
+          <p>Get SUI on your wallet. (Literally, that's it.)</p>
+        </div>
+        <div class="card">
+          <h3 class="meme-text">Step 2</h3>
+          <p>Head to DexScreener or DexTools above. Don't overthink it.</p>
+        </div>
+        <div class="card">
+          <h3 class="meme-text">Step 3</h3>
+          <p>Flush. Your paper hands will thank you later (or not).</p>
+        </div>
+      </div>
+      <p class="muted" style="text-align: center; margin-top: 20px; font-style: italic;">Not financial advice. We are not your financial advisor. Please don't sue us.</p>
+    </section>
+
+    <!-- SHARE MEME TRIGGER -->
+    <section class="block" style="text-align: center; background: linear-gradient(135deg, rgba(255,221,87,0.1), rgba(255,154,87,0.1));">
+      <h2>Spread the Dust</h2>
+      <p class="lead">Made you smile? Screenshot and post it. Let the toilet flush.</p>
+      <button class="btn btn-primary" onclick="alert('Share this on twitter: \n\n🚽 Toilet Dust 2.0 is back. \n\n$7M last time. \nBuilt different this time. \n\nFresh. Flushed. Forever. \n\n#ToiletDust #SUI #Meme')" style="margin-top: 16px;">Copy Meme Text</button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p><strong>© 2026 Toilet Dust 2.0 | SUI Network</strong></p>
+      <p class="meme-text" style="font-size: 18px;">Flush. Reload. Run it back. 🚽🔥</p>
+      <p>Not financial advice. Do your own research (DYOR). We are feral.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    // Rotating subtitle
+    const subtitles = [
+      'The Flush That Comes Back Stronger',
+      'Flush. Reload. Run it back.',
+      'Built for Longevity, Not a One-Flush Pump',
+      'Sometimes dust comes back louder.'
+    ];
+    let i = 0;
+    setInterval(() => {
+      const el = document.querySelector('.subtitle');
+      if (el) {
+        el.textContent = subtitles[i % subtitles.length];
+        i++;
+      }
+    }, 5000);
+
+    // Parallax on floating meme
+    const floatingMeme = document.querySelector('.meme-float');
+    if (floatingMeme) {
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        floatingMeme.style.bottom = (60 - y * 0.08) + 'px';
+      });
+    }
+
+    // Interactive floating memes
+    document.querySelectorAll('.meme-float').forEach((meme, idx) => {
+      // Random rotation on load
+      const randomRotation = (Math.random() * 8 - 4);
+      meme.style.setProperty('--rotation', randomRotation + 'deg');
+      meme.style.transform = `rotate(${randomRotation}deg)`;
+
+      // Click interaction
+      meme.addEventListener('click', () => {
+        const sounds = ['🚽', '💧', '🔥', '✨'];
+        const bubble = document.createElement('div');
+        bubble.textContent = sounds[Math.floor(Math.random() * sounds.length)];
+        bubble.style.cssText = `
+          position: fixed;
+          font-size: 48px;
+          top: ${meme.offsetTop}px;
+          left: ${meme.offsetLeft}px;
+          pointer-events: none;
+          z-index: 50;
+          animation: popBubble 1s ease-out forwards;
+        `;
+        document.body.appendChild(bubble);
+        setTimeout(() => bubble.remove(), 1000);
+
+        // Screen shake
+        document.body.style.transform = 'translateX(4px)';
+        setTimeout(() => document.body.style.transform = 'translateX(-4px)', 50);
+        setTimeout(() => document.body.style.transform = 'translateX(0)', 100);
+      });
+    });
+
+    // Add pop animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes popBubble {
+        0% { opacity: 1; transform: scale(1) translateY(0); }
+        100% { opacity: 0; transform: scale(1.5) translateY(-60px); }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Random rotation on cards in chaotic section
+    const chaosSection = document.querySelector('.chaotic');
+    if (chaosSection) {
+      chaosSection.querySelectorAll('.card').forEach(card => {
+        const rot = (Math.random() * 3 - 1.5);
+        card.style.setProperty('--rotation', rot + 'deg');
+        card.style.transform = `rotate(${rot}deg)`;
+      });
+    }
+  </script>
+
+</body>
+</html>
